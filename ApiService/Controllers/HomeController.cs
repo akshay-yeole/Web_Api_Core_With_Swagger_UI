@@ -11,6 +11,7 @@ namespace ApiService.Controllers
     [ApiController]
     public class HomeController : ControllerBase
     {
+        [HttpGet]
         public ActionResult<string> Index()
         {
             return "Hello.........";

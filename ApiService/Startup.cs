@@ -17,6 +17,7 @@ namespace ApiService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -28,6 +29,12 @@ namespace ApiService
             }
 
             app.UseRouting();
+
+            app.UseStaticFiles();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(option => option.SwaggerEndpoint("/swagger/v1/swagger.json","Test Api"));
 
             app.UseEndpoints(endpoints =>
             {
